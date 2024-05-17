@@ -7,13 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float jumpHeight;
     [SerializeField] private float movementSpeed;
-    private Rigidbody2D playerRb;
+    [SerializeField] private Rigidbody2D playerRb;
     private float horizontal;
-
-
-    private void Awake(){
-        playerRb = GetComponent<Rigidbody2D>();
-    }
 
     void Update()
     {
@@ -25,6 +20,7 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         transform.position += new Vector3(horizontal * movementSpeed * Time.deltaTime,0,0);
+
     }
 
     private void HandleJump(){
