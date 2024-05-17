@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRb;
     private float horizontal;
 
+
     void Update()
     {
         HandleJump();
@@ -18,8 +19,15 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
+        //////////////////////// Attempt at sprints
+        // if (Input.GetKey(KeyCode.LeftShift))
+        // {
+        //     movementSpeed = 15;
+        // }
         horizontal = Input.GetAxisRaw("Horizontal");
-        transform.position += new Vector3(horizontal * movementSpeed * Time.deltaTime,0,0);
+        transform.position += Vector3.right * horizontal * movementSpeed * Time.deltaTime;
+
+
 
     }
 
